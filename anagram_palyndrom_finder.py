@@ -94,7 +94,6 @@ def anagram_palyndrom_finder(url, filename='text.html'):
     if '' in words:
         words.remove('')
     return get_anagrams_palindromes(words)
-#
 def get_anagrams_palindromes(words):
     """gets the anagrams and palindromes from a list of words"""
     palindromes = Palindromes()
@@ -108,7 +107,6 @@ def get_anagrams_palindromes(words):
                 anagrams.add(word_2)
     anagrams.update(palindromes.get_palindromes())
     return list(anagrams)
-#
 def get_html(url, filename):
     """get the HTML file froma url"""
     try:
@@ -119,6 +117,7 @@ def get_html(url, filename):
         StringEditor.save(filename, str(file.read().decode('utf-8')))
 
 #uncomment for testing
+"""
 assert StringEditor.append('a', 'b') == 'ab'
 assert StringEditor.append('', 'b') == 'b'
 assert StringEditor.append('a', '') == 'a'
@@ -179,6 +178,7 @@ assert sorted(get_anagrams_palindromes(['a', 'b', 'ab'])) == sorted(['a', 'b'])
 assert sorted(get_anagrams_palindromes(['a', 'b', 'ab', 'ba'])) == sorted(['a', 'b', 'ab', 'ba'])
 assert sorted(get_anagrams_palindromes(['a', 'b', 'ab', 'ba', 'ac',''])) == sorted(['a', 'b', 'ab', 'ba', ''])
 assert get_anagrams_palindromes([]) == []
+"""
 
 if args.url:
     for word in anagram_palyndrom_finder(args.url):
